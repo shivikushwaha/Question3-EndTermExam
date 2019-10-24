@@ -1,0 +1,96 @@
+import java.util.*;
+class Customer
+{
+private String name;
+private String address;
+private Integer age;
+private String mobileNumber;
+ Customer(String name, String address, int age, String mobileNumber)
+	{
+	 this.name=name;
+	 this.address=address;
+	 this.age=age;
+	 this.mobileNumber=mobileNumber;
+	}
+
+	void displayCustomer()
+	{
+             System.out.println("Name: "+name);
+			 System.out.println("Address: " +address);
+			  System.out.println("Age:"+age);
+			 System.out.println("MobileNumber:"+mobileNumber);
+	}
+	}
+	class SeniorCitizen extends Customer
+	{
+		
+		SeniorCitizen(String name, String address, int age, String mobileNumber)
+		{
+			super(name,address,age,mobileNumber);
+	    }
+	double getBillAmount(int purchasedamount)
+			{
+			double discount =0.1;
+             double paymentamount=purchasedamount-(discount*purchasedamount);
+			  System.out.println("Your bill amount is Rs."+purchasedamount+ " Congrats! As you are a Senior Citizen, you are eligible for a discount!You have to pay Rs. "+paymentamount);
+			 return paymentamount;
+			 }
+	}
+	 class PrivilegeCustomer extends Customer
+	 {
+       
+		PrivilegeCustomer(String name, String address, int age, String mobileNumber)
+		 {
+			super(name,address,age,mobileNumber);
+			
+		 }
+		    double getBillAmount(int purchasedamount)
+			 {
+			double discount =0.3;
+             double paymentamount=purchasedamount-(discount*purchasedamount);
+			 System.out.println("Your bill amount is Rs."+purchasedamount +" Congrats! As you are a Privileged customer, you are eligible for a discount!You have to pay Rs. "+paymentamount);
+			 return paymentamount;
+			 }
+	 }
+	 class driver
+	 {
+		 public static void main(String[] args)
+		 {
+			 int shopping;
+			 System.out.println("Enter the input");
+			 System.out.println("1 for PrivilegeCustomer");
+			 System.out.println("2 for SeniorCitizen");
+			 Scanner sc= new Scanner(System.in);
+			 shopping=sc.nextInt();
+			 System.out.print("Enter the purchased amount:");
+			  int purchasedamount=sc.nextInt();
+			  System.out.println(); 
+			 switch (shopping)
+			 {
+			 case 1 :
+				 {
+				 PrivilegeCustomer privilegecustomer = new PrivilegeCustomer("RAM","CBE",25,"9576531641");
+			     privilegecustomer.displayCustomer();
+				 privilegecustomer.getBillAmount(purchasedamount);
+					break;
+				 }
+				 case 2 : 
+				 {
+					 SeniorCitizen seniorcitizen=new SeniorCitizen("shivani","jacobpura",70,"9754567666");
+					 seniorcitizen.displayCustomer();
+					 seniorcitizen.getBillAmount(purchasedamount);
+					 break;
+				 }
+
+				default : System.out.println("You have selected wrong input");
+			 }
+		 }
+	 }
+			
+
+
+          
+
+
+
+
